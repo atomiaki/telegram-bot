@@ -1,3 +1,4 @@
+import os
 import logging
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes
@@ -69,7 +70,7 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 
 def main() -> None:
     # Создаем Application и передаем токен бота
-    application = Application.builder().token("7496105642:AAGs6L6m7XcV6jQ6hpUUNv3VnORARKbLHjM").build()
+    application = Application.builder().token(os.getenv("BOT_TOKEN")).build()ld()
 
     # Регистрируем обработчики
     application.add_handler(CommandHandler("start", start))
